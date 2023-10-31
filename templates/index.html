@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Include a CSS stylesheet -->
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+    <!-- Include jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>seq2seq chatbot</h1>
+      <h3>A web implementation of <a href="https://github.com/gunthercox/ChatterBot">a seq2seq chatbot model</a> using Flask.</h3>
+      <div class="chat-container">
+        <div id="chatbox" class="chat-history">
+          <p class="botText"><span>Hi!</span></p>
+        </div>
+        <div id="userInput" class="user-input">
+          <input id="textInput" type="text" name="msg" size="150" class="chat-input" placeholder="Write your message to the chatbot here">
+          <input id="buttonInput" type="submit" value="Send" class="chat-button">
+        </div>
+        <!-- Add an initial image -->
+        <img class="bot-image" id="botImage" src="https://source.unsplash.com/featured/?robot" alt="Robot">
+        <script>
+          // Function to scroll to the bottom of the chat history
+          function scrollToBottom() {
+            var chatbox = document.getElementById("chatbox");
+            chatbox.scrollTop = chatbox.scrollHeight;
+          }
+          // Function to get the chatbot's response
+          function getBotResponse() {
+            var rawText = $("#textInput").val();
+            var userHtml = '<p class="userText"><span>' + rawText + '</span></p>';
+            $("#textInput").val("");
+            $("#chatbox").append(userHtml);
+            scrollToBottom(); // Scroll to the bottom after user message
+            // Make an AJAX request to get the chatbot's response
+            $.get("/get", { msg: rawText }).done(function(data) {
+              var botHtml = '<p class="botText"><span>' + data + '</span></p>';
+              $("#chatbox").append(botHtml);
+              scrollToBottom(); // Scroll to the bottom after chatbot's response
+            });
+          }
+          // Listen for Enter key press to send the message
+          $("#textInput").keypress(function(e) {
+            if ((e.which == 13) && document.getElementById("textInput").value != "" ){
+              getBotResponse();
+            }
+          });
+          // Listen for button click to send the message
+          $("#buttonInput").click(function() {
+            if (document.getElementById("textInput").value != "") {
+              getBotResponse();
+            }
+          });
+          // Get references to the input and image elements
+          const inputElement = document.getElementById("textInput");
+          const imageElement = document.getElementById("botImage");
+          // Add an event listener to the input box for updating the image
+          inputElement.addEventListener("input", function() {
+            // Get the value of the input and construct a new image URL
+            const inputValue = inputElement.value;
+            const newImageURL = `https://source.unsplash.com/featured/?robot&${inputValue}`; // Updated the image URL
+            // Update the image source
+            imageElement.src = newImageURL;
+          });
+        </script>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,143 @@
+/* Reset some default styles for the body */
+body {
+  font-family: Garamond;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0; /* Set a background color */
+}
+
+/* Style for the main heading (h1) */
+h1 {
+  color: black;
+  font-size: 40px;
+  text-align: center;
+  margin: 0; /* Remove margin for h1 */
+}
+
+/* Style for the subheading (h3) */
+h3 {
+  color: black;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 3px;
+}
+
+/* Style for the chat history container */
+#chatbox {
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+  margin-top: 60px;
+  max-height: 400px; /* Set a maximum height for the chat history to enable scrolling */
+  overflow-y: scroll; /* Enable vertical scrolling */
+}
+
+/* Style for the user input container */
+#userInput {
+  display: flex;
+  align-items: flex-end; /* Align the input and button at the bottom */
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+  margin-top: 20px; /* Adjust the margin */
+}
+
+/* Style for the send button */
+.chat-button {
+  width: 50px; /* Adjust the width as needed */
+}
+
+/* Style for the user input text field */
+#textInput {
+  flex: 1; /* Allow the input to grow as needed */
+  border: none;
+  border-bottom: 3px solid #009688;
+  font-family: monospace;
+  font-size: 17px;
+  width: 70%;
+  margin-right: 10px;
+}
+
+/* Style for the send button */
+#buttonInput {
+  height: 30px;
+  font-family: monospace;
+  font-size: 17px;
+  width: 120px;
+}
+
+/* Style for user's messages */
+.userText {
+  color: white;
+  font-family: monospace;
+  font-size: 17px;
+  text-align: right;
+  line-height: 30px;
+}
+
+.userText span {
+  background-color: #009688;
+  padding: 10px;
+  border-radius: 2px;
+}
+
+/* Style for chatbot's messages */
+.botText {
+  color: white;
+  font-family: monospace;
+  font-size: 17px;
+  text-align: left;
+  line-height: 30px;
+}
+
+.botText span {
+  background-color: #EF5350;
+  padding: 10px;
+  border-radius: 2px;
+}
+
+/* Style for the container holding the chat */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Style for the chat container */
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: fixed;
+  top: 100px;
+  padding: 10px;
+  background-color: white; /* Optional: Add a background color for contrast */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Optional: Add a shadow for separation */
+  z-index: 1; /* Optional: Layer above the image */
+}
+
+/* Style for the chat history container with scrolling */
+.chat-history {
+  overflow-y: scroll;
+  max-height: 400px; /* Set a maximum height for the chat history to enable scrolling */
+}
+
+/* Style for the chatbot's image */
+.bot-image {
+  width: 100%;
+  max-width: 400px; /* Adjust the max-width as needed */
+  display: block;
+  margin: 0 auto;
+  padding: 50px 0 150px; /* Space for the image, adjust as needed */
+  position: relative;
+  top: 0; /* Adjust the top position to create space for chat history */
+  z-index: 0; /* Optional: Layer behind the chat history */
+}
+
+/* Style for the input text field */
+.chat-input {
+  width: 100%;
+  padding: 10px; /* Adjust as needed */
+}
