@@ -5,7 +5,7 @@ Build a chatbot using the Seq2Seq model
 
 ### Raw data for training
  
-conversation.csv (training_model/conversation.csv) from https://www.kaggle.com/datasets/kreeshrajani/3k-conversations-dataset-for-chatbot
+[conversation.csv](training_model/conversation.csv) from https://www.kaggle.com/datasets/kreeshrajani/3k-conversations-dataset-for-chatbot
 
 ### Data cleaning
 
@@ -16,13 +16,15 @@ Removal of ã‚â€” (UTF8 encoding issue in data)
 TensorFlow with Keras used to build the Seq2Seq model. Both Encoder and Decoder use LSTM layers.
 
 - <h4>Retraining of model (optional)</h4>
-  IPython notebook (training_model/Train_seq2seq_model.ipynb) via Google Colab. 
+
+  [IPython notebook](training_model/Train_seq2seq_model.ipynb) via Google Colab. 
   
-  - Select a GPU option (training took 5 minutes using T4 GPU) and upload data to Google Colab (training_model/conversation.csv). 
-  - Download the saved model (training_model.h5) and cleaned data (pairs.pkl) for use in app.py to run the chatbot 
+  - Select a GPU option (training took 5 minutes using T4 GPU) and upload [data](training_model/conversation.csv) to Google Colab. 
+  - Download the [saved model](training_model.h5) and [cleaned data](pairs.pkl) for use in app.py to run the chatbot 
 
 - <h4>To run chatbot app</h4>
-  Download .py file (app.py). 
+
+  Download [.py file](app.py). 
   
   - In terminal: ```FLASK_APP=app.py flask run```
   - Open browser to http://127.0.0.1:5000 (port number depends on availability) to load application page 
